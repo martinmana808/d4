@@ -11,6 +11,8 @@
     <link rel="favicon" href="icon.png">
 
     <link rel="stylesheet" href="css/styles.css">
+    
+
 </head>
 
 <body class="body"> 
@@ -49,7 +51,7 @@
                 <li class="sidebar-item--lvl1">
                     <div class="sidebar-item--lvl1__label flex justify-between flex-wrap">
                         <span class="">Content manager</span>
-                        <button class="trigger-subnav js-trigger-subnav js-trigger-subnav--lvl1">
+                        <button class="trigger-subnav js-trigger-subnav--lvl1">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 11L3 6.00005L3.7 5.30005L8 9.60005L12.3 5.30005L13 6.00005L8 11Z" fill="currentColor"/>
                             </svg>
@@ -159,7 +161,7 @@
                 <li class="sidebar-item--lvl1">
                     <div class="sidebar-item--lvl1__label flex justify-between flex-wrap">
                         <span class="">Scheduler</span>
-                        <button class="trigger-subnav js-trigger-subnav js-trigger-subnav--lvl1">
+                        <button class="trigger-subnav js-trigger-subnav--lvl1">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 11L3 6.00005L3.7 5.30005L8 9.60005L12.3 5.30005L13 6.00005L8 11Z" fill="currentColor"/>
                             </svg>
@@ -235,77 +237,8 @@
             </div>
         </main>
     </div>
-
-    <script>
-        // GENERIC SUBNAV TRIGGER
-        // Get all the buttons in the document
-        const buttons = document.querySelectorAll('.js-trigger-subnav');
-       
-        // Add click event listener to each button
-        buttons.forEach(button => {
-          button.addEventListener('click', () => {
-            // Get the parent element of the clicked button
-            const parent = button.parentNode;
-            const grandpa = parent.parentNode;
-            
-            // Toggle the 'highlight' class on the parent element
-            grandpa.classList.toggle('--subnav-active');
-          });
-        });
-       
-
-        
-        
-        // CLOSE OTHERS BEFORE OPENING SELF
-        const listItems = document.querySelectorAll('.sidebar-item--lvl1');
-        const toggleButtons = document.querySelectorAll('.js-trigger-subnav--lvl1');
-
-        toggleButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                listItems.forEach((item, itemIndex) => {
-                if (itemIndex === index) {
-                    if (itemIndex.classList.contains('--subnav-active')) {
-                        item.classList.remove('--subnav-active');
-                    } else {
-                        item.classList.add('--subnav-active');
-                    }
-                } else {
-                    item.classList.remove('--subnav-active');
-                }
-                });
-            });
-        });
-
-
-
-
-        // SHOW ARCHIVED
-        // Get the button element
-        const showArchived = document.querySelector('.js-show-archived');
-
-        // Add click event listener to the button
-        showArchived.addEventListener('click', () => {
-        // Toggle the "highlight" class on the button
-        showArchived.classList.toggle('--active');
-        });
-
-
-        // OPEN SIDEBAR SMALL SCREEN
-        function toggleClassOnClick() {
-        var elementsB = document.getElementsByClassName('sidebar');
-        
-        for (var i = 0; i < elementsB.length; i++) {
-            elementsB[i].classList.toggle('--active');
-        }
-        }
-
-        // Attach the click event listener to the elements with class "element-a"
-        var elementsA = document.getElementsByClassName('js-sidebar-toggle');
-        for (var i = 0; i < elementsA.length; i++) {
-        elementsA[i].addEventListener('click', toggleClassOnClick);
-        }
-
-    </script>
+    
+    <script type="text/javascript" src="js/functions.js"></script>
 </body>
 
 </html>
